@@ -1,4 +1,4 @@
-use bevy::prelude::*;
+use bevy::{color::palettes::css::BLUE, prelude::*};
 use bevy_mod_fornjot::*;
 mod fj_star;
 fn main() {
@@ -6,7 +6,7 @@ fn main() {
     app.add_plugins(DefaultPlugins);
     app.add_systems(Startup, setup);
     app.add_systems(Update, rotate);
-    app.run()
+    app.run();
 }
 
 #[derive(Component)]
@@ -72,7 +72,7 @@ fn setup(
     commands.spawn((
         PbrBundle {
             mesh: meshes.add(mesh),
-            material: materials.add(Color::BLUE),
+            material: materials.add(Color::Srgba(BLUE)),
             transform: Transform::from_xyz(0., 2.5, 0.),
             ..default()
         },

@@ -37,9 +37,15 @@ pub fn model(num_points: u64, r1: f64, r2: f64, h: f64, core: &mut fj_core::Core
 
     Sketch::empty()
         .add_regions(
-            [Region::polygon(outer_points, core)
-                .add_interiors([Cycle::polygon(inner_points, core).reverse(core)], core)],
+            [
+                Region::polygon(outer_points, core)
+                .add_interiors([Cycle::polygon(inner_points, core).reverse(core)], core)
+                ],
             core,
         )
         .sweep_sketch(bottom_surface, sweep_path, core)
+}
+
+fn main(){
+    
 }
